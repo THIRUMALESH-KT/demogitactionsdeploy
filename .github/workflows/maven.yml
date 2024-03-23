@@ -50,6 +50,8 @@ jobs:
     needs: build
     runs-on: [demorunner]
     steps:
+      - name: run docker
+        run: service docker start
   
       - name: delete old container
         run: docker rm -f demogitactionsdeploy-container || true
