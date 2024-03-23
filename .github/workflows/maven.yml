@@ -56,6 +56,6 @@ jobs:
 
      
       - name: run Docker container
-        run: sudo docker run -d -p 8082:8080 --name demogitactionsdeploy-container thirumaleshd7013/awsdockerimage:${{ github.sha }}
+        run: sudo docker run -d -p 8080:8082 --name demogitactionsdeploy-container thirumaleshd7013/awsdockerimage:${{ github.sha }}
 
 
