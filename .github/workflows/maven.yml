@@ -51,7 +51,7 @@ jobs:
     runs-on: [demorunner]
     steps:
       - name: run docker
-        run: docker start
+        run: docker start demogitactionsdeploy-container
   
       - name: delete old container
         run: docker rm -f demogitactionsdeploy-container || true
