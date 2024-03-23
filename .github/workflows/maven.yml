@@ -31,5 +31,35 @@ jobs:
       run: |
        cd BackendAwsDeployeDemo
        mvn clean install
+    - name: Clear Docker cache
+      run: docker builder prune -a -f
+
+    - name: Build & push Docker image
+      uses: mr-smithers-excellent/docker-build-push@v6
+      with:
+        image: thirumaleshd7013/awsdockerimage
+        tags: ${{ github.sha }}
+        registry: docker.io
+        dockerfile: BackendAwsDeployeDemo/Dockerfile
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+
+
+  deploy:
+    needs: build
+    runs-on: [gitactions]
+    steps:
+      - name: Install Docker
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install docker.io
+  
+      - name: delete old container
+        run: sudo docker rm -f demogitactionsdeploy-container
+
+     
+      - name: run Docker container
+        run: sudo docker run -d -p 8080:8080 --name demogitactionsdeploy-container thirumaleshd7013/awsdockerimage:${{ github.sha }}
 
 
