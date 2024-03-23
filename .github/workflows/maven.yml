@@ -52,10 +52,10 @@ jobs:
     steps:
   
       - name: delete old container
-        run: docker rm -f demogitactionsdeploy-container || true
+        run: sudo docker rm -f demogitactionsdeploy-container || true
 
      
       - name: run Docker container
-        run: docker run -d -p 8080:8080 --name demogitactionsdeploy-container thirumaleshd7013/awsdockerimage:${{ github.sha }}
+        run: sudo docker run -d -p 8080:8080 --name demogitactionsdeploy-container thirumaleshd7013/awsdockerimage:${{ github.sha }}
 
 
