@@ -21,7 +21,7 @@ jobs:
         cache: maven
 
     - name: Build with Maven
-      run: mvn -f demogitactionsdeploy/pom.xml clean install
+      run: mvn -f BackendAwsDeployeDemo/pom.xml clean install
 
     - name: Clear Docker cache
       run: docker builder prune -a -f
@@ -32,7 +32,7 @@ jobs:
         image: thirumaleshd7013/awsdockerimage
         tags: ${{ github.sha }}
         registry: docker.io
-        dockerfile: demogitactionsdeploy/Dockerfile
+        dockerfile: BackendAwsDeployeDemo/Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
