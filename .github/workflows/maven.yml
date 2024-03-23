@@ -50,13 +50,9 @@ jobs:
     needs: build
     runs-on: [demorunner]
     steps:
-      - name: Install Docker
-        run: |
-          sudo yum update
-          sudo yum install docker
   
       - name: delete old container
-        run: docker rm -f demogitactionsdeploy-container
+        run: docker rm -f demogitactionsdeploy-container || true
 
      
       - name: run Docker container
