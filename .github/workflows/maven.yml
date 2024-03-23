@@ -52,8 +52,8 @@ jobs:
     steps:
       - name: Install Docker
         run: |
-          yum update
-          yum install docker.io
+          sudo yum update
+          sudo yum install docker.io
   
       - name: delete old container
         run: docker rm -f demogitactionsdeploy-container
