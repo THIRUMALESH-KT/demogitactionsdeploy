@@ -32,7 +32,7 @@ public class DemoController {
 		public ResponseEntity<Map<String,Object>> hello() {
 		Map<String,Object> map=new HashMap<>();
 		map.put("message", "sucess");
-		map.put("result" , "This is  server side hello kakarakaya");
+		map.put("result" , "CICI configuration is working");
 		map.put("time", LocalTime.now());
 			return ResponseEntity.ok(map);
 		}
