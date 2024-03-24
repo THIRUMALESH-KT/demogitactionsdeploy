@@ -33,6 +33,7 @@ public class DemoController {
 		Map<String,Object> map=new HashMap<>();
 		map.put("message", "sucess");
 		map.put("result" , "CICI configuration is working");
+		map.put("name", "Thirumalesh");
 		map.put("time", LocalTime.now());
 			return ResponseEntity.ok(map);
 		}
